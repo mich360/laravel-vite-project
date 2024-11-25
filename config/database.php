@@ -1,4 +1,5 @@
-<?php
+<?php                    // MySQLの設定を無効化または削除します MySQL の設定を無効化: MySQL の設定は必要ないので、コメントアウトまたは削除します。
+
 
 use Illuminate\Support\Str;
 
@@ -16,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'sqlite'), // SQLiteを使用する設定に変更
 
     /*
     |--------------------------------------------------------------------------
@@ -30,28 +31,34 @@ return [
     */
 
     'connections' => [
-
+        
+        // SQLite設定
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => database_path('database.sqlite'),
+            'database' => database_path('database.sqlite'), // SQLiteのデータベースファイルパス
             'prefix' => '',
         ],
 
+        // MySQLの設定を無効化（削除またはコメントアウト）
+        /*
         'mysql' => [
-    'driver' => env('DB_CONNECTION', 'mysql'),
-    'host' => env('DB_HOST', '127.0.0.1'),
-    'port' => env('DB_PORT', '3306'),
-    'database' => env('DB_DATABASE', 'forge'),
-    'username' => env('DB_USERNAME', 'forge'),
-    'password' => env('DB_PASSWORD', ''),
-    'unix_socket' => env('DB_SOCKET', ''),
-    'charset' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
-    'prefix' => '',
-    'strict' => true,
-    'engine' => null,
-],
+            'driver' => env('DB_CONNECTION', 'mysql'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+        */
 
+        // PostgreSQLの設定を無効化（削除またはコメントアウト）
+        /*
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
@@ -66,7 +73,10 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
+        */
 
+        // SQL Serverの設定を無効化（削除またはコメントアウト）
+        /*
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
@@ -79,6 +89,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        */
 
     ],
 
@@ -109,10 +120,10 @@ return [
     |
     */
 
+    // Redisの設定を無効化（コメントアウトまたは削除）
+    /*
     'redis' => [
-
         'client' => env('REDIS_CLIENT', 'phpredis'),
-
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
             'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
@@ -135,7 +146,8 @@ return [
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
-
     ],
+    */
 
 ];
+

@@ -1,4 +1,3 @@
-<!DOCTYPE html>   <!-- /Users/user1/Desktop/vite-project/resources/views/items/show.blade.php -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -25,14 +24,26 @@
         </nav>
     </header>
 
-    <h1>{{ $item->name }} の詳細</h1>
-    <img src="{{ asset('images/ha.JPG') }}" alt="画像の説明" width="400">
-    <!-- <img src="{{ asset($item->image_path) }}" alt="{{ $item->name }}" width="300"> -->
-    <p>価格: {{ $item->price }}円</p>
-    <p>{{ $item->description }}</p>
+    <main>
+        <h1>{{ $item->name }} の詳細</h1>
 
-<!-- 商品一覧に戻るリンク -->
-　　　　　<a href="{{ route('items.index') }}">前の商品一覧に戻る</a>
+        <!-- 商品画像 -->
+        <img src="{{ asset($item->image_path ?? 'images/default.jpg') }}" alt="{{ $item->name }}の画像" width="400">
 
+        <!-- 商品詳細情報 -->
+        <p>価格: {{ number_format($item->price) }}円</p>
+        <p>{{ $item->description }}</p>
+
+        <!-- カートに追加ボタン -->
+        <form method="POST" action="{{ route('cart.add') }}">
+    @csrf
+    <input type="hidden" name="item_id" value="{{ $item->id }}">
+    <button type="submit">カートに追加</button>
+   </form>
+
+
+        <!-- 商品一覧に戻るリンク -->
+        <a href="{{ route('items.index') }}">商品一覧に戻る</a>
+    </main>
 </body>
 </html>

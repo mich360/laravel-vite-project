@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard　login-Page !') }}
         </h2>
-        <p><a href="http://127.0.0.1:8080/">docker compose up -d　の時 HOME戻る</a></p>
+        <p><a href="http://127.0.0.1:8080/">HOME  (docker compose up -d)</a></p>
+        <p><a href="http://127.0.0.1:8000/items">商品一覧</a></p>
 
     </x-slot>
 

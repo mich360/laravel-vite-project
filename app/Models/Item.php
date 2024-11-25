@@ -10,7 +10,7 @@ class Item extends Model
     use HasFactory;
 
     // MySQL接続を使用する
-    protected $connection = 'mysql';
+    // protected $connection = 'mysql';
 
     // Mass assignmentを許可する属性を指定
     protected $fillable = [
